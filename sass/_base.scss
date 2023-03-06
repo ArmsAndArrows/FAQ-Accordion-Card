@@ -1,0 +1,246 @@
+///Colors
+$color-white: rgb(255, 255, 255);
+$color-black: rgb(0, 0, 0);
+
+$color-verydarkdesaturatedblue: hsl(238, 29%, 16%);
+$color-softred: hsl(14, 88%, 65%);
+
+// Background
+
+$color-soft-violet: hsl(273, 75%, 66%);
+$color-soft-blue: hsl(240, 73%, 65%);
+
+///Text
+
+$color-verydarkgrayishblue: hsl(237, 12%, 33%);
+$color-darkgrayishblue: hsl(240, 6%, 50%);
+
+///divider
+$color-lightgrayishblue: hsl(240, 5%, 91%);
+
+$ft-bold: 700;
+$ft-normal: 400;
+
+///SCREENS
+
+$bp-small: 28.125em; ///450px
+$bp-med: 37.5em; ///600px
+$bp-large: 50em; ///800px
+$bp-largest: 90em; ///1440px
+
+///RESETS
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+    line-height: 0;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+///BEGIN
+///
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; ////defines
+}
+
+body {
+    font-family: "Kumbh Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: $color-darkgrayishblue;
+    background-size: cover;
+    background-image: linear-gradient(0deg, $color-soft-blue, $color-soft-violet);
+
+    @media only screen and (min-width: $bp-small) {
+        padding: 0 3rem;
+    }
+    @media only screen and (min-width: $bp-med) {
+        padding: 0 8rem;
+        margin-top: 5%;
+    }
+    @media only screen and (min-width: $bp-large) {
+        padding: 0 4rem;
+        margin-top: 5%;
+    }
+}
+
+////Typo
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    padding: 3rem 0 1.5rem;
+    color: $color-black;
+    @media only screen and (min-width: $bp-large) {
+        text-align: left;
+        margin-left: 1rem;
+    }
+}
+
+.card {
+    margin: 0 2rem;
+    margin-top: 40%;
+    margin-bottom: 20%;
+
+    background-color: $color-white;
+
+    border-radius: 2rem;
+    padding: 0 2rem;
+    padding-bottom: 5rem;
+    overflow: hidd;
+
+    @media only screen and (min-width: $bp-large) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10% 15%;
+        overflow: hidden;
+    }
+
+    &__left {
+        position: relative;
+        &--1 {
+            @media only screen and (min-width: $bp-large) {
+                display: none;
+            }
+        }
+        &_img-main {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            width: 80%;
+        }
+        &_img-sec {
+            margin: 0 auto;
+            padding-top: 2rem;
+        }
+        &--2 {
+            display: none;
+            @media only screen and (min-width: $bp-large) {
+                display: block;
+                margin-right: auto;
+
+                width: 100%;
+            }
+        }
+        &_img-maindesk {
+            position: relative;
+            width: 100rem;
+            transform: translate(-24%, 5%);
+            z-index: 5;
+        }
+
+        &_img-secdesk {
+            position: absolute;
+            width: 100rem;
+            top: 0;
+            left: 0;
+            transform: scale(2) translate(-37%, -10%);
+            z-index: 0;
+        }
+        &_img-box {
+            position: fixed;
+            width: 10%;
+
+            transform: translate(-61%, -123%);
+            z-index: 10;
+        }
+    }
+    &__right {
+        @media only screen and (min-width: $bp-large) {
+            width: 100%;
+            margin: 3rem 0;
+            padding-right: 5%;
+            margin-left: auto;
+        }
+    }
+}
+
+.content {
+    padding: 0 1rem;
+}
+
+.accordion {
+    border-bottom: 1px solid $color-lightgrayishblue;
+
+    &__title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    &__heading {
+        width: 80%;
+        font-size: 1.7rem;
+        padding: 1.5rem 0;
+        color: $color-black;
+        font-weight: $ft-normal;
+        transition: all 0.2s;
+        &:hover{
+            color: $color-softred;
+        }
+
+        &--active {
+            font-weight: $ft-bold;
+        }
+    }
+    &__icon {
+        width: 1.3rem;
+        &--active {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__content {
+        padding-bottom: 0rem;
+        opacity: 0;
+        width: 85%;
+        transition: all 0.5s ease-out;
+        p {
+            display: none;
+            font-size: 1.5rem;
+        }
+    }
+    &__content--active {
+        opacity: 1;
+        padding-bottom: 1.5rem;
+        p {
+            display: block;
+        }
+    }
+}
